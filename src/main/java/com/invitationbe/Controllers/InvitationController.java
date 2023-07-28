@@ -4,20 +4,19 @@ package com.invitationbe.Controllers;
 import com.invitationbe.Models.InvitationModel;
 import com.invitationbe.Services.InvitationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
-@RequestMapping
-@RestController("/api/invitation")
+@RequestMapping("/api/invitation")
+@RestController
+@CrossOrigin(origins = "*")
 public class InvitationController {
 
     @Autowired private InvitationService invitationService;
     @PostMapping("/new")
     public String sendMail(@RequestBody InvitationModel invitation){
         String status = invitationService.sendMail(invitation);
+        System.out.println("backend");
         return status;
     }
 
