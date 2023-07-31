@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
-@ComponentScan(basePackages = {"com.invitationbe.*"})
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class InvitationBeApplication {
 
