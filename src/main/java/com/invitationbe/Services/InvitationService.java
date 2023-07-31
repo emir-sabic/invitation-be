@@ -20,22 +20,24 @@ public class InvitationService implements InvitationRepository {
         try {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
 
-            String msg = "Name: " + invitation.getName() + "\n"
+            String msg = "Ime: " + invitation.getName() + "\n"
                     + "Email: " + invitation.getEmail() + "\n"
-                    + "Number of guests: " + invitation.getGuests() + "\n"
-                    + "Is attending: " + invitation.getAttending() + "\n"
-                    + "Message: " + invitation.getMessage();
+                    + "Broj Gostiju: " + invitation.getGuests() + "\n"
+                    + "Dolazi: " + invitation.getAttending() + "\n"
+                    + "Poruka: " + invitation.getMessage();
 
             mailMessage.setFrom(sender);
             mailMessage.setTo(sender);
             mailMessage.setText(msg);
-            mailMessage.setSubject("Invitation");
+            mailMessage.setSubject("Pozivnica");
 
             javaMailSender.send(mailMessage);
             return "Mail was sent";
         }
         catch (Exception e){
+            System.out.println(e);
             return "Mail sending error";
+
         }
     }
 }
